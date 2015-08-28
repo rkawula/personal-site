@@ -6,7 +6,7 @@ class WelcomeController < ApplicationController
 	def about
 	end
 
-	def contact
+	def resume
 	end
 
 	def post
