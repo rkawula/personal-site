@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   root :to => 'welcome#index'
   get 'about', to: 'welcome#about'
+  get 'contact', to: 'welcome#contact'
+  get 'post', to: 'welcome#post'
 
 
   # Example of regular route:

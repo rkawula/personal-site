@@ -1,82 +1,58 @@
-%body
-  %header.intro-header{:style => "background-image: url('img/home-bg.jpg')"}
-    .container
-      .row
-        .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
-          .site-heading
-            %h1 Rachel's Blog
-            %hr.small
-              %span.subheading computers.
-  / Main Content
+%header.intro-header{:style => "background-image: url('img/home-bg.jpg')"}
   .container
     .row
       .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+        .site-heading
+          %h1 Rachel's Blog
+          %hr.small
+            %span.subheading computers.
+/ Main Content
+.container
+  .row
+    .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+      .post-preview
+        %a{:href => post_path}
+          %h2.post-title
+            Man must explore, and this is exploration at its greatest
+          %h3.post-subtitle
+            Problems look mighty small from 150 miles up
+        %p.post-meta
+          Posted by
+          %a{:href => "#"} Start Bootstrap
+          on September 24, 2014
+      %hr
         .post-preview
-          %a{:href => "post.html"}
+          %a{:href => post_path}
             %h2.post-title
-              Man must explore, and this is exploration at its greatest
-            %h3.post-subtitle
-              Problems look mighty small from 150 miles up
+              I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
           %p.post-meta
             Posted by
             %a{:href => "#"} Start Bootstrap
-            on September 24, 2014
+            on September 18, 2014
         %hr
           .post-preview
-            %a{:href => "post.html"}
+            %a{:href => post_path}
               %h2.post-title
-                I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
+                Science has not yet mastered prophecy
+              %h3.post-subtitle
+                We predict too much for the next year and yet far too little for the next ten.
             %p.post-meta
               Posted by
               %a{:href => "#"} Start Bootstrap
-              on September 18, 2014
+              on August 24, 2014
           %hr
             .post-preview
-              %a{:href => "post.html"}
+              %a{:href => post_path}
                 %h2.post-title
-                  Science has not yet mastered prophecy
+                  Failure is not an option
                 %h3.post-subtitle
-                  We predict too much for the next year and yet far too little for the next ten.
+                  Many say exploration is part of our destiny, but it’s actually our duty to future generations.
               %p.post-meta
                 Posted by
                 %a{:href => "#"} Start Bootstrap
-                on August 24, 2014
+                on July 8, 2014
             %hr
-              .post-preview
-                %a{:href => "post.html"}
-                  %h2.post-title
-                    Failure is not an option
-                  %h3.post-subtitle
-                    Many say exploration is part of our destiny, but it’s actually our duty to future generations.
-                %p.post-meta
-                  Posted by
-                  %a{:href => "#"} Start Bootstrap
-                  on July 8, 2014
-              %hr
-                / Pager
-                %ul.pager
-                  %li.next
-                    %a{:href => "#"} Older Posts &rarr;
-  %hr
-    / Footer
-    %footer
-      .container
-        .row
-          .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
-            %ul.list-inline.text-center
-              %li
-                %a{:href => "#"}
-                  %span.fa-stack.fa-lg
-                    %i.fa.fa-circle.fa-stack-2x
-                    %i.fa.fa-twitter.fa-stack-1x.fa-inverse
-              %li
-                %a{:href => "#"}
-                  %span.fa-stack.fa-lg
-                    %i.fa.fa-circle.fa-stack-2x
-                    %i.fa.fa-facebook.fa-stack-1x.fa-inverse
-              %li
-                %a{:href => "#"}
-                  %span.fa-stack.fa-lg
-                    %i.fa.fa-circle.fa-stack-2x
-                    %i.fa.fa-github.fa-stack-1x.fa-inverse
-            %p.copyright.text-muted Copyright &copy; Your Website 2014
+              / Pager
+              %ul.pager
+                %li.next
+                  %a{:href => "#"} Older Posts &rarr;
