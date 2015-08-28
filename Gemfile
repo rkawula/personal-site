@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 ruby '2.2.1'
 gem 'haml'
 gem 'less-rails', '~> 2.7.0'
-gem 'rails', '4.2.3' 
+gem 'rails', '4.2.3'
 gem 'therubyracer'
 
 gem 'knife-solo'
@@ -11,6 +11,10 @@ gem 'knife-solo'
 group :development, :test do
 	gem 'sqlite3'
 	gem 'byebug', '3.4.0'
+	gem 'rspec-rails', require: false
+	gem 'factory_girl_rails', require: false
+	gem 'cucumber-rails', require: false
+	gem 'database_cleaner'
 end
 
 group :production do
