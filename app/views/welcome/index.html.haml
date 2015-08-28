@@ -10,12 +10,13 @@
 .container
   .row
     .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+    - @posts.each do |post|
       .post-preview
         %a{:href => post_path}
           %h2.post-title
-            Man must explore, and this is exploration at its greatest
+            #{post.title}
           %h3.post-subtitle
-            Problems look mighty small from 150 miles up
+            #{post.body}
         %p.post-meta
           Posted by
           %a{:href => "#"} Start Bootstrap

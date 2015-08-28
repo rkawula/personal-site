@@ -1,0 +1,25 @@
+Given(/^that there is a post in the database with title "(.*?)" and body "(.*?)" in the blog$/) do |title, body|
+  Post.create title: title, body: body
+end
+
+When(/^I visit the home page$/) do
+  visit root_path
+end
+
+Then(/^I should see the title "(.*?)" and body "(.*?)"$/) do |title, body|
+  expect(page).to have_content title
+  expect(page).to have_content body
+end
+
+Given(/^that there are more than (\d+) posts in the database$/) do |post_count|
+  (post_count.to_i + 1).times do |i|
+  	Post.create title: i.to_s
+  end
+end
+
+Then(/^I should see (\d+) post titles and a button "(.*?)"$/) do |post_count, pagination_button|
+  expect(page).to have_content pagination_button
+  (post_count.to_i + 1).times do |i|
+    expect(page).to have_content i.to_s
+  end
+end
