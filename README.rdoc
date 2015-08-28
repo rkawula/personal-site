@@ -2,6 +2,8 @@ README
 
 To make it easy to run this project's development environment on multiple host machines, I am using Chef (with Librarian), Vagrant, and VirtualBox to run the site inside a VM.
 
+Tested in Windows 7.
+
 To run this project:
 
 1. Install VirtualBox
@@ -16,6 +18,7 @@ To run this project:
 10. cd /vagrant
 11. bundle install --without production
 12. rake db:migrate && rake db:seed
+12.5. rbenv rehash
 13. rails s -b 0.0.0.0 (I like using an alias in my ~/.bashrc)
 14. In host web browser, visit localhost:3000 and you should see the site! Edit files in the host, and run tests/command line while SSHed into the Ubuntu box.
 
