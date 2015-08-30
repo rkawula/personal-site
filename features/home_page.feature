@@ -11,3 +11,4 @@ Scenario: There is a pagination button when there are more than 5 posts in the b
 Given that there are more than 5 posts in the database
 When I visit the home page
 Then I should see 5 post titles and a button "Older Posts"
+

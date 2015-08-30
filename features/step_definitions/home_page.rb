@@ -23,3 +23,12 @@ Then(/^I should see (\d+) post titles and a button "(.*?)"$/) do |post_count, pa
     expect(page).to have_content i.to_s
   end
 end
+
+Given(/^that there is a post in the database with author "(.*?)" and created at date "(.*?)"$/) do |author, created_at_date|
+  Post.create author: author
+end
+
+Then(/^I should see the author "(.*?)" and created at date "(.*?)"$/) do |author, created_at_date|
+  expect(page).to have_content author # Make this specific so it doesn't pass due to copyright at the bottom of the page
+  expect(page).to have_content created_at_date
+end
