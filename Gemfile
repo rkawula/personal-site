@@ -6,8 +6,6 @@ gem 'less-rails', '~> 2.7.0'
 gem 'rails', '4.2.3'
 gem 'therubyracer'
 
-gem 'knife-solo'
-
 group :development, :test do
 	gem 'sqlite3'
 	gem 'byebug', '3.4.0'

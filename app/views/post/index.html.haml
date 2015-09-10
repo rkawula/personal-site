@@ -1,0 +1,28 @@
+%header.intro-header{:style => "background-image: url('/assets/tea-pot.jpg')"}
+  .container
+    .row
+      .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+        .site-heading
+          %h1 Archive
+          %hr.small
+            %span.subheading My blog.
+
+.container
+  .row
+    .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+    - @posts.each do |post|
+      .post-preview
+        %a{:href => post_path(post.id)}
+          %h2.post-title
+            #{post.title}
+          %h3.post-subtitle
+            #{post.subtitle}
+        %p.post-meta
+          Posted by
+          %a{:href => "#"} #{post.author}
+          on #{post.created_date_readable}
+          %hr
+    / Pager
+    %ul.pager
+      %li.next
+        %a{:href => "#"} Older Posts &rarr;

@@ -1,14 +1,14 @@
-Given(/^that there is a post in the database with title "(.*?)" and body "(.*?)" in the blog$/) do |title, body|
-  Post.create title: title, body: body
+Given(/^that there is a post in the database with title "(.*?)" and subtitle "(.*?)" in the blog$/) do |title, subtitle|
+  Post.create title: title, subtitle: subtitle
 end
 
 When(/^I visit the home page$/) do
   visit root_path
 end
 
-Then(/^I should see the title "(.*?)" and body "(.*?)"$/) do |title, body|
+Then(/^I should see the title "(.*?)" and subtitle "(.*?)"$/) do |title, subtitle|
   expect(page).to have_content title
-  expect(page).to have_content body
+  expect(page).to have_content subtitle
 end
 
 Given(/^that there are more than (\d+) posts in the database$/) do |post_count|
