@@ -1,3 +1,12 @@
-// Place all the styles related to the PostController controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.nav {
+	.navbar-header {
+		a {
+			-webkit-text-stroke: 1px black;
+		}
+	}
+	li {
+		a {
+	    	-webkit-text-stroke: 1px black;
+		}
+	}
+}
