@@ -13,7 +13,5 @@
 /log/*.log
 /tmp
 
-Cheffile.lock
-Gemfile.lock
 .vagrant/
 log/
