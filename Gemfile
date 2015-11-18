@@ -10,7 +10,7 @@ group :development, :test do
 	gem 'sqlite3'
 	gem 'byebug', '3.4.0'
 	gem 'rspec-rails', require: false
-	gem 'factory_girl_rails', require: false
+	gem 'factory_girl_rails'
 	gem 'cucumber-rails', require: false
 	gem 'database_cleaner'
 end
