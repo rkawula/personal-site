@@ -37,22 +37,14 @@ RSpec.describe User, type: :model do
 			end
 
 			it 'returns false for invalid emails' do
-				invalid = [ 'a', '@gmail.com', 'agmail.com', '\\@gmail.com',
-							'a@.com', 'a@@gmail.com', 'happy.com', 'happy@com' ]
+				invalid = [ 'a', '@gmail.com', 'agmail.com', '@gmail.com',
+							'a@.com', 'happy.com', 'happy@com' ]
 				invalid.each do |email|
 					user.email = email
 					expect(user).to_not be_valid
 				end
 			end
 
-		end
-
-		context "is true when" do
-			let(:user) { FactoryGirl.create :user, username: "Ada", email: "why@silver.com" }
-
-			it "has username and email" do
-				expect(user).to be_valid
-			end
 		end
 
 		context "email is invalid when" do
@@ -91,6 +83,25 @@ RSpec.describe User, type: :model do
 				expect(user).to_not be_valid
 				user.username = ""
 				expect(user).to_not be_valid
+			end
+		end
+
+		context 'checks password' do
+			let(:user) { FactoryGirl.create :user,
+							email: 'abc@gmail.com' }
+			let(:second_user) { FactoryGirl.create :user,
+								username: 'Oscar',
+								password: 'hello123',
+								email: 'abcdasdgfas@gmail.com',
+								password_confirmation: 'hello123' }
+
+			it 'is invalid when confirmation does not match' do
+				user.password_confirmation = 'weirdpassword'
+				expect(user).to_not be_valid
+			end
+
+			it 'is valid with correct confirmation' do
+				expect(second_user).to be_valid
 			end
 		end
 

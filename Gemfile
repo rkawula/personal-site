@@ -5,6 +5,7 @@ gem 'haml'
 gem 'less-rails', '~> 2.7.0'
 gem 'rails', '4.2.3'
 gem 'therubyracer'
+gem 'bcrypt', '3.1.7'
 
 group :development, :test do
 	gem 'sqlite3'
