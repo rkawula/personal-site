@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-	before_save { self.email = email.downcase,
-				self.username = username.downcase }
+	before_save { self.email = email.downcase }
+	before_save { self.username = username.downcase }
 
 	EMAIL_MATCHER = /\A.+@.+\..+\z/
 
@@ -10,5 +10,6 @@ class User < ActiveRecord::Base
 		length: { maximum: 50, minimum: 3 }
 
 	has_secure_password
+	validates :password, presence: true, length: { minimum: 6 }
 	
 end

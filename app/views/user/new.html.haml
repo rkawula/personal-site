@@ -1,0 +1,29 @@
+%header.intro-header{:style => "background-image: url('/assets/tea-pot-3.jpg')"}
+  .container
+    .row
+      .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+        .page-heading
+          %h1 Sign Up
+.container
+  .row
+    .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+      - provide(:title, 'Sign up')
+      %h1 Sign up
+      = form_for @user, url: { controller: 'user', action: 'create' } do |f|
+        = f.label :username
+        %br
+        = f.text_field :username
+        %p
+        = f.label :email
+        %br
+        = f.email_field :email
+        %p
+        = f.label :password
+        %br
+        = f.password_field :password
+        %p
+        = f.label :password_confirmation, "Confirmation"
+        %br
+        = f.password_field :password_confirmation
+        %p
+          = f.submit "Create my account", class: "btn btn-primary"
