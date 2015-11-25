@@ -16,3 +16,4 @@
 .vagrant/
 log/
 /cookbooks
+/config/secrets.yml
