@@ -17,3 +17,4 @@
 log/
 /cookbooks
 /config/secrets.yml
+/db/seeds.rb
