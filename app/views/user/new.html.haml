@@ -10,20 +10,22 @@
       - provide(:title, 'Sign up')
       %h1 Sign up
       = form_for @user, url: { controller: 'user', action: 'create' } do |f|
+        = render 'shared/errors'
         = f.label :username
         %br
         = f.text_field :username
-        %p
+        %br
         = f.label :email
         %br
         = f.email_field :email
-        %p
+        %br
         = f.label :password
         %br
         = f.password_field :password
-        %p
+        %br
         = f.label :password_confirmation, "Confirmation"
         %br
         = f.password_field :password_confirmation
-        %p
-          = f.submit "Create my account", class: "btn btn-primary"
+        %br
+        %br
+        = f.submit "Create my account", class: "btn btn-primary"

@@ -12,13 +12,21 @@ class UserController < ApplicationController
 	end
 
 	def create
-		@user = User.new params[:user]
+		@user = User.new user_params
 		if @user.save
-			# Success
+			redirect_to :root
 		else
 			render 'new'
 			# Failure
 		end
 	end
+
+	private
+		def user_params
+			params.require(:user).permit(
+					:username, :email,
+					:password, :password_confirmation)
+
+		end
 
 end
