@@ -11,6 +11,14 @@
     / Collect the nav links, forms, and other content for toggling
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
+        - if logged_in?
+          %li
+            = link_to 'Your Profile', profile_path(current_user.username)
+          %li
+            = link_to 'Log out', logout_path
+        - else
+          %li
+            = link_to 'Log in or Register', login_path
         %li
           %a{:href => about_path} About
         %li

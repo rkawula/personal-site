@@ -1,0 +1,23 @@
+%header.intro-header{:style => "background-image: url('/assets/tea-pot-3.jpg')"}
+  .container
+    .row
+      .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+        .page-heading
+          %h1 Log In
+.container
+  .row
+    .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+      %h1 Log in here
+      - provide :title, 'Log In'
+      = form_for :session, url: login_path do |f|
+        = f.label :username
+        %br
+        = f.text_field :username
+        %br
+        = f.label :password
+        %br
+        = f.password_field :password
+        %br
+        = f.submit 'Log in', class: 'btn btn-primary'
+      New user?
+      = link_to 'Click here!', signup_path
