@@ -1,0 +1,20 @@
+%header.intro-header{:style => "background-image: url('/assets/tea-pot.jpg')"}
+  .container
+    .row
+      .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+        .site-heading
+          %h1 New post
+          %hr.small
+            %span.subheading My blog.
+= form_for :post, url: post_index_path, method: :post do |form|
+  = form.label :title
+  = form.text_field :title
+  %br
+  = form.label :subtitle
+  = form.text_field :subtitle
+  %br
+  = form.label :content
+  %br
+  = form.text_area :content, rows: '25', cols: '50'
+  %br
+  = form.submit 'Submit', class: 'btn btn-primary'

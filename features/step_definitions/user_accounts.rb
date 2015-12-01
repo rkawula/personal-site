@@ -7,6 +7,8 @@ When(/^I visit the "(.*?)" page$/) do |webpage|
     to_visit = login_path
   elsif webpage == 'admin'
     to_visit = admin_path
+  elsif webpage == 'new post'
+    to_visit = new_post_path
   end
   visit to_visit
 end

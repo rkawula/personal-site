@@ -11,17 +11,23 @@
     / Collect the nav links, forms, and other content for toggling
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
-        - if logged_in?
-          %li
-            = link_to 'Your Profile', profile_path(current_user.username)
-          %li
-            = link_to 'Log out', logout_path, method: :delete
+        - if not admin?
+          - if logged_in?
+            %li
+              = link_to 'Your Profile', profile_path(current_user.username)
+            %li
+              = link_to 'Log out', logout_path, method: :delete
+          - else
+            %li
+              = link_to 'Log in or Register', login_path
         - else
           %li
-            = link_to 'Log in or Register', login_path
+            = link_to 'Admin', admin_path
+          %li
+            = link_to 'Log out', logout_path, method: :delete
         %li
-          %a{:href => about_path} About
+          = link_to 'About', about_path
         %li
-          %a{:href => post_index_path} Archive
+          = link_to 'Archive', post_index_path
         %li
-          %a{:href => resume_path} Resume
+          = link_to 'Resume', resume_path

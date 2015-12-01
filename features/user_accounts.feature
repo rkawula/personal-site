@@ -23,11 +23,11 @@ And I enter "abcdefg" in the textbox "session_password"
 And I click "Log in"
 Then I should see "Welcome, abcdefg!"
 
-Scenario: I only admin can see admin page
+Scenario: Only admin can see admin page
 
 Given that I am logged in as "administrator"
 When I visit the "admin" page
-Then I should see "Welcome, administrator!"
+Then I should see "Administrator"
 
 Given that I am not logged in
 When I visit the "admin" page
@@ -36,3 +36,4 @@ Then I should see "Error: restricted access!"
 Given that I am logged in as "nonadministrator"
 When I visit the "admin" page
 Then I should see "Error: restricted access!"
+
