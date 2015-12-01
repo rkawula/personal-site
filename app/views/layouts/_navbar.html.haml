@@ -15,7 +15,7 @@
           %li
             = link_to 'Your Profile', profile_path(current_user.username)
           %li
-            = link_to 'Log out', logout_path
+            = link_to 'Log out', logout_path, method: :delete
         - else
           %li
             = link_to 'Log in or Register', login_path

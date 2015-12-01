@@ -25,6 +25,6 @@ Rails.application.routes.draw do
   # begin new session
   post 'login', to: 'sessions#create'
   # log out
-  delete 'logout', to: 'sessions#destroy'
+  get 'logout', to: 'sessions#destroy'
 
 end
