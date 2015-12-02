@@ -1,6 +1,5 @@
-- if not flash.empty?
-  = flash.each do |key, value|
-    .alert{ :class => "alert-#{key}" }
-      %button.close{ :data => { :dismiss => "alert" } } x
-      %strong
-        = value
+- flash.each do |key, value|
+  .alert{ :class => "alert-#{key}" }
+    %button.close{ :data => { :dismiss => "alert" } } x
+    %strong
+      = value

@@ -9,7 +9,7 @@
             Posted by
             %a{:href => "#"} #{@post.author}
             on #{@post.created_date_readable}
-/ Post Content
+= render 'layouts/flash'
 %article
   .container
     .row

@@ -6,8 +6,10 @@
           %h1 Administrator
           %hr.small
             %span.subheading CMS.
+= render 'layouts/flash'
 %h1 Edit content
-= link_to 'New Blog Post', new_post_path
+= link_to 'Start Blog Post', new_post_path
+= link_to 'Continue Blog Post', continue_post_path
 %h1 Coming soon
 About
 Resume

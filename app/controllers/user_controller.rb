@@ -15,8 +15,9 @@ class UserController < ApplicationController
 		@user = User.new user_params
 		if @user.save
 			log_in @user
-			redirect_to :root
+			redirect_to root_path
 		else
+			flash.now[:danger] = 'Error creating user account.'
 			render 'new'
 			# Failure
 		end

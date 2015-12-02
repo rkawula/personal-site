@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   # Dynamic blog:
   resources :post
+  get 'continue_post', to: 'post#continue', as: 'continue_post'
 
   # Static pages:
   root :to => 'welcome#index'

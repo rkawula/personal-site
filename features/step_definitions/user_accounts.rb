@@ -9,6 +9,10 @@ When(/^I visit the "(.*?)" page$/) do |webpage|
     to_visit = admin_path
   elsif webpage == 'new post'
     to_visit = new_post_path
+  elsif webpage == 'home'
+    to_visit = root_path
+  elsif webpage == 'continue'
+    to_visit = continue_post_path
   end
   visit to_visit
 end
@@ -25,7 +29,7 @@ When(/^I enter "(.*?)" in the textbox "(.*?)"$/) do |data, textbox|
   fill_in textbox, with: data
 end
 
-When(/^I click "(.*?)"$/) do |button|
+When(/^I press "(.*?)"$/) do |button|
   click_button button
 end
 

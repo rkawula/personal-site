@@ -1,9 +1,5 @@
-Given(/^that there is a post in the database with title "(.*?)" and subtitle "(.*?)" in the blog$/) do |title, subtitle|
-  Post.create title: title, subtitle: subtitle
-end
-
-When(/^I visit the home page$/) do
-  visit root_path
+Given(/^that there is a post in the database with title "(.*?)" and subtitle "(.*?)" in the blog and is visible$/) do |title, subtitle|
+  Post.create title: title, subtitle: subtitle, visible: true
 end
 
 Then(/^I should see the title "(.*?)" and subtitle "(.*?)"$/) do |title, subtitle|
@@ -11,9 +7,9 @@ Then(/^I should see the title "(.*?)" and subtitle "(.*?)"$/) do |title, subtitl
   expect(page).to have_content subtitle
 end
 
-Given(/^that there are more than (\d+) posts in the database$/) do |post_count|
+Given(/^that there are more than (\d+) posts in the database and they are visible$/) do |post_count|
   (post_count.to_i + 1).times do |i|
-  	Post.create title: i.to_s
+  	Post.create title: i.to_s, visible: true
   end
 end
 

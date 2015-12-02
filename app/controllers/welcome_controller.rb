@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
 
 	def index
-		@posts = Post.reverse_date
+		@posts = Post.get_visible_ordered_posts
 	end
 
 	def about
