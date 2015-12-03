@@ -16,6 +16,13 @@ class PostController < ApplicationController
 			flash[:danger] = 'That post not found'
 			redirect_to post_index_path
 		end
+		@body = []
+		# Prepare post body for view-dependent formatting.
+		# Allows paragraphs to be inserted into divs and styled
+		# independently.
+		@post.content.each_line do |l|
+			@body.push l
+		end
 	end
 
 	def new
@@ -23,6 +30,7 @@ class PostController < ApplicationController
 	end
 
 	def create
+		render 'admin/permission_denied' unless admin?
 		@post = Post.new post_params
 		@post.author = current_user.username
 		if @post.save
@@ -43,10 +51,12 @@ class PostController < ApplicationController
 	end
 
 	def edit
+		render 'admin/permission_denied' unless admin?
 		@post = Post.find params[:id]
 	end
 
 	def update
+		render 'admin/permission_denied' unless admin?
 		@post = Post.find params[:id]
 		@post.author = current_user.username
 		if @post.update_attributes post_params
