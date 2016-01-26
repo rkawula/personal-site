@@ -3,5 +3,5 @@ Given(/^that I am at the home page$/) do
 end
 
 Then(/^I should be at the "(.*?)" webpage$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+  expect(page).to have_content 'Projects'
 end

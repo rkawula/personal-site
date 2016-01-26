@@ -54,7 +54,7 @@ Feature: Blog Content Management System.
 	And I see a checkbox labeled "Visible"
 
 	Given that I am logged in as "administrator"
-	And there is a post with title "NYI", subtitle "TBD", content "Incomplete", and not visible
+	And there is a post with title "NYI", subtitle "TBD", content "Incomplete", and visibility is "false"
 	When I visit the edit page for the post with title "NYI"
 	Then I see the "Title" textbox with "NYI"
 	And I see the "Subtitle" textbox with "TBD"
@@ -64,7 +64,7 @@ Feature: Blog Content Management System.
 	Scenario: Edit post and publish.
 
 	Given that I am logged in as "administrator"
-	And there is a post with title "NYI", subtitle "TBD", content "Incomplete", and not visible
+	And there is a post with title "NYI", subtitle "TBD", content "Incomplete", and visibility is "false"
 	And I am at the edit page for the post with title "NYI"
 	And I write "Testing!" in "Title"
 	And I write "Testing!" in "Subtitle"
@@ -78,7 +78,7 @@ Feature: Blog Content Management System.
 	Scenario: Edit post and don't publish.
 
 	Given that I am logged in as "administrator"
-	And there is a post with title "NYI", subtitle "TBD", content "Incomplete", and not visible
+	And there is a post with title "NYI", subtitle "TBD", content "Incomplete", and visibility is "false"
 	And I am at the edit page for the post with title "NYI"
 	And I write "Testing!" in "Title"
 	And I write "Testing!" in "Subtitle"
@@ -88,3 +88,14 @@ Feature: Blog Content Management System.
 	Then I should see "Changes saved."
 	And I should see "Posts in progress"
 	And I should see "Testing!"
+
+	Scenario: Delete published post.
+
+	Given that I am logged in as "administrator"
+	And there is a post with title "Delete me", subtitle "now", content "Old", and visibility is "true"
+	And I am at the edit page for the post with title "Delete me"
+	When I click "Delete"
+	Then I should see "Post deleted."
+	And I should see "Edit content"
+	And I should see "Start Blog Post"
+	And "Delete me" should be gone from the database

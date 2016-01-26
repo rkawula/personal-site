@@ -7,6 +7,7 @@ gem 'rails', '4.2.3'
 gem 'therubyracer'
 gem 'bcrypt', '3.1.7'
 gem 'redcarpet' # Markdown for blog
+gem 'coderay' # Code/syntax highlighting for blog
 
 group :development, :test do
 	gem 'sqlite3'

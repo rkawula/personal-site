@@ -66,8 +66,10 @@ When(/^I click on the first post$/) do
   click_link "Content! 1"
 end
 
-Given(/^there is a post with title "(.*?)", subtitle "(.*?)", content "(.*?)", and not visible$/) do |title, subtitle, content|
-  Post.create title: title, subtitle: subtitle, content: content
+Given(/^there is a post with title "(.*?)", subtitle "(.*?)", content "(.*?)", and visibility is "(.*?)"$/) do |title, subtitle, content, visibility|
+  vis = false
+  vis = true if visibility == "true"
+  Post.create title: title, subtitle: subtitle, content: content, visible: vis
 end
 
 When(/^I visit the edit page for the post with title "(.*?)"$/) do |title|
@@ -84,4 +86,8 @@ end
 
 Given(/^I uncheck "(.*?)"$/) do |box|
   uncheck box
+end
+
+Then(/^"(.*?)" should be gone from the database$/) do |post_title|
+  expect(Post.find_by(title: post_title)).to be nil
 end

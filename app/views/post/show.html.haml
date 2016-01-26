@@ -13,7 +13,7 @@
 %article
   .container
     .row
-      - @body.each do |paragraph|
-        .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
-          %br
-            #{paragraph}
+      .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+        = markdown(@post.content)
+        - if admin?
+          = link_to 'Edit post', edit_post_path(@post)
