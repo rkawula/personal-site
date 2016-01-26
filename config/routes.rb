@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   root :to => 'welcome#index'
   get 'about', to: 'welcome#about'
   get 'resume', to: 'welcome#resume'
+  get 'projects', to: 'welcome#projects'
 
   # User accounts:
   # sign up
@@ -29,5 +30,6 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy'
   # admin
   get 'admin', to: 'admin#index'
+
 
 end
