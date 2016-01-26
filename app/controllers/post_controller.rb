@@ -41,6 +41,7 @@ class PostController < ApplicationController
 	end
 
 	def continue
+		render 'admin/permission_denied' unless admin?
 		@posts = Post.where visible: false
 	end
 
