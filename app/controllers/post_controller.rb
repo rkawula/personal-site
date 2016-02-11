@@ -6,7 +6,7 @@ class PostController < ApplicationController
 
 	def show
 		begin
-			@post = Post.find params[:id]
+			@post = Post.find_by_slug params[:id]
 			unless @post.visible
 				@post = nil
 				flash[:danger] = 'That post not found'
@@ -26,6 +26,7 @@ class PostController < ApplicationController
 	def create
 		render 'admin/permission_denied' unless admin?
 		@post = Post.new post_params
+		@post.slug = @post.title.downcase.gsub(" ", "-")
 		@post.author = current_user.username
 		if @post.save
 			flash[:info] = "Success creating post."
@@ -47,12 +48,12 @@ class PostController < ApplicationController
 
 	def edit
 		render 'admin/permission_denied' unless admin?
-		@post = Post.find params[:id]
+		@post = Post.find_by_slug params[:id]
 	end
 
 	def update
 		render 'admin/permission_denied' unless admin?
-		@post = Post.find params[:id]
+		@post = Post.find_by_slug params[:id]
 		@post.author = current_user.username
 		if @post.update_attributes post_params
 			if @post.visible
@@ -71,7 +72,8 @@ class PostController < ApplicationController
 	def destroy
 		render 'admin/permission_denied' unless admin?
 		begin
-			Post.delete(params[:id])
+			@delete_me = Post.find_by_slug(params[:id])
+			Post.delete @delete_me
 			flash[:info] = 'Post deleted.'
 			redirect_to admin_path
 		rescue ActiveRecord::RecordNotFound
