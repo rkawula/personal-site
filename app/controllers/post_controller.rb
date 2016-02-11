@@ -26,7 +26,7 @@ class PostController < ApplicationController
 	def create
 		render 'admin/permission_denied' unless admin?
 		@post = Post.new post_params
-		@post.slug = @post.title.downcase.gsub(" ", "-")
+		@post.format_slug
 		@post.author = current_user.username
 		if @post.save
 			flash[:info] = "Success creating post."
@@ -54,6 +54,7 @@ class PostController < ApplicationController
 	def update
 		render 'admin/permission_denied' unless admin?
 		@post = Post.find_by_slug params[:id]
+		@post.format_slug
 		@post.author = current_user.username
 		if @post.update_attributes post_params
 			if @post.visible

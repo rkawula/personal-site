@@ -14,4 +14,8 @@ class Post < ActiveRecord::Base
 		slug
 	end
 
+	def format_slug
+		title = title.downcase.gsub(" ", "-").gsub(/\W/, "")
+	end
+
 end
