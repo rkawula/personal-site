@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
 
-	validates_presence_of :slug
+	validates_presence_of :slug, uniqueness: true
 
 	def self.get_visible_ordered_posts
 		Post.where(visible: true).order created_at: :desc
