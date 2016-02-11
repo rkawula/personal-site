@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   # begin new session
   post 'login', to: 'sessions#create'
   # log out
-  get 'logout', to: 'sessions#destroy'
+  delete 'logout', to: 'sessions#destroy'
   # admin
   get 'admin', to: 'admin#index'
 
