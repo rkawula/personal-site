@@ -11,7 +11,7 @@ class @GoogleAnalytics
     ga.type = "text/javascript"
     ga.async = true
     ga.src = ((if "https:" is document.location.protocol then "https://ssl" else "http://www") + ".google-analytics.com/ga.js")
-    firstScript = document.getEleentByTagName("script")[0]
+    firstScript = document.getElementsByTagName("script") [0]
     firstScript.parentNode.insertBefore ga, firstScript
 
     # If Turbolinks is supported, set up a callback to track pageviews on page:change
@@ -28,7 +28,7 @@ class @GoogleAnalytics
       if url
         window._gaq.push ["_trackPageview", url]
       else
-        window._gaq.push ["_trackPageView"]
+        window._gaq.push ["_trackPageview"]
     window._gaq.push ["_trackPageLoadTime"]
 
   @isLocalRequest: ->
@@ -38,6 +38,6 @@ class @GoogleAnalytics
      document.domain.indexOf(str) isnt -1
 
    @analyticsId: ->
-     "UA-73772507-1"
+     'UA-73772507-1'
 
  GoogleAnalytics.load()
