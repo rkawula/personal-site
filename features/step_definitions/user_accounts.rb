@@ -1,5 +1,6 @@
 Given(/^that I am not logged in$/) do
-  visit logout_path
+  visit root_path
+  click_link "log out" if page.has_content? "log out"
 end
 
 When(/^I visit the "(.*?)" page$/) do |webpage|

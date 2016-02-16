@@ -4,5 +4,6 @@ FactoryGirl.define do
 		content { "Hello world!" }
 		created_at { DateTime.new }
 		author { "Anonymous" }
+		slug = "First post".downcase.gsub(" ", "-")
 	end
 end

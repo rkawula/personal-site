@@ -48,13 +48,15 @@ end
 
 Given(/^there are (\d+) incomplete posts in the database$/) do |count|
    count.to_i.times do |i|
-    Post.create title: "Content! " + i.to_s, visible: false
+    title = "Content! " + i.to_s
+    Post.create title: title, slug: Post.format_slug(title), visible: false
   end
 end
 
 Given(/^there are (\d+) complete posts in the database$/) do |count|
    count.to_i.times do |i|
-    Post.create title: "Content! " + i.to_s, visible: true
+    title = "Content! " + i.to_s
+    Post.create title: title, slug: Post.format_slug(title), visible: true
   end
 end
 
@@ -69,7 +71,7 @@ end
 Given(/^there is a post with title "(.*?)", subtitle "(.*?)", content "(.*?)", and visibility is "(.*?)"$/) do |title, subtitle, content, visibility|
   vis = false
   vis = true if visibility == "true"
-  Post.create title: title, subtitle: subtitle, content: content, visible: vis
+  Post.create title: title, slug: Post.format_slug(title), subtitle: subtitle, content: content, visible: vis
 end
 
 When(/^I visit the edit page for the post with title "(.*?)"$/) do |title|
