@@ -7,3 +7,16 @@
           %hr.small
             %span.subheading Things I've made.
 = render 'layouts/flash'
+.container
+  .row
+    .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+      %h1 DNS Resolution Educational Tool
+      %p
+        D3 visualization to demonstrate how DNS queries work.
+      %p
+        Available at
+        = succeed "," do
+          %a{href: "http://rkawula.github.io/"} rkawula.github.io
+        source code found at
+        = succeed "." do
+          %a{href: "https://github.com/rkawula/rkawula.github.io"} my GitHub account
